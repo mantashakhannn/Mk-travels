@@ -1,0 +1,394 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#102d2b">
+  <meta name="description" content="Discover extraordinary destinations, premium hotels and personalised worldwide travel packages with MK Travel.">
+  <title>MK Travel | Discover Beyond Boundaries</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+<div class="announcement">
+  <span>YOUR NEXT ADVENTURE STARTS HERE</span>
+  <span>Travel more. Discover more. Live more.</span>
+</div>
+
+<nav class="navbar">
+  <a href="#home" class="brand">
+    <span class="brand-mark">MK</span>
+    <span>MK TRAVEL<small>WORLDWIDE EXPERIENCES</small></span>
+  </a>
+
+  <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation">☰</button>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#home">Home</a>
+    <a href="#destinations">Destinations</a>
+    <a href="#hotels">Hotels</a>
+    <a href="#packages">Packages</a>
+    <a href="#culinary">Cuisine</a>
+    <a href="#about">Our Story</a>
+    <a href="#booking" class="nav-cta">Plan Your Trip ↗</a>
+  </div>
+
+  <button id="themeToggle" class="theme-btn" aria-label="Toggle dark and light theme">☼</button>
+</nav>
+
+<main>
+  <section id="home" class="hero">
+    <div class="hero-image"></div>
+    <div class="hero-content">
+      <span class="eyebrow light">THE WORLD IS YOURS TO DISCOVER</span>
+      <h1>Go Beyond.<br><em>Discover More.</em></h1>
+      <p>From extraordinary escapes to meaningful journeys, we transform your travel dreams into unforgettable experiences.</p>
+      <div class="hero-actions">
+        <a href="#destinations" class="btn btn-gold">Explore Destinations ↗</a>
+        <a href="#packages" class="btn btn-outline">Discover Our Packages</a>
+      </div>
+      <div class="hero-trust">
+        <div><strong>126+</strong><span>Destinations</span></div>
+        <div><strong>Personalised</strong><span>Travel Planning</span></div>
+        <div><strong>50% OFF</strong><span>Eligible 4th Tour</span></div>
+      </div>
+    </div>
+    <div class="hero-caption">CURATED JOURNEYS · EXTRAORDINARY MEMORIES</div>
+  </section>
+
+  <section class="search-strip">
+    <div class="search-field">
+      <label for="quickSearch">WHERE TO?</label>
+      <input id="quickSearch" type="text" placeholder="Search a country or destination">
+    </div>
+    <div class="search-field">
+      <label for="quickTravelers">TRAVELLERS</label>
+      <select id="quickTravelers">
+        <option>1 Traveller</option>
+        <option selected>2 Travellers</option>
+        <option>3 Travellers</option>
+        <option>4 Travellers</option>
+        <option>5+ Travellers</option>
+      </select>
+    </div>
+    <a href="#destinations" class="btn btn-dark">Find Your Journey ↗</a>
+  </section>
+
+  <section id="destinations" class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">THE WORLD, BEAUTIFULLY CONNECTED</span>
+        <h2>Find Your <em>Somewhere.</em></h2>
+        <p>Explore 126 country destinations, from iconic capitals to remarkable coastal retreats.</p>
+      </div>
+      <span class="section-number">01 / EXPLORE</span>
+    </div>
+
+    <div class="destination-tools">
+      <input id="countrySearch" type="search" placeholder="⌕  Search destinations..." aria-label="Search countries">
+      <select id="regionFilter" aria-label="Filter destinations">
+        <option value="all">All Regions</option>
+        <option value="Asia">Asia</option>
+        <option value="Europe">Europe</option>
+        <option value="Africa">Africa</option>
+        <option value="North America">North America</option>
+        <option value="South America">South America</option>
+        <option value="Oceania">Oceania</option>
+        <option value="Middle East">Middle East</option>
+      </select>
+    </div>
+
+    <div class="destination-feature" id="destinationFeature">
+      <div>
+        <span class="eyebrow light">YOUR JOURNEY, YOUR WAY</span>
+        <h3>One planet.<br>Endless possibilities.</h3>
+        <p>Select any country to discover its capital, featured cities, travel highlights and available imagery.</p>
+      </div>
+    </div>
+
+    <div class="results-label"><span id="countryCount">126 destinations</span><span>Select a destination to explore →</span></div>
+    <div id="countryGrid" class="country-grid"></div>
+
+    <div id="cityPanel" class="city-panel" hidden>
+      <div class="section-heading compact">
+        <div>
+          <span class="eyebrow">YOUR DESTINATION GUIDE</span>
+          <h2 id="cityTitle">Explore Cities</h2>
+          <p id="cityDescription"></p>
+        </div>
+        <button id="closeCities" class="icon-button" aria-label="Close cities">✕</button>
+      </div>
+      <div id="cityGrid" class="city-grid"></div>
+      <button id="countryBookButton" class="btn btn-dark">Plan This Destination ↗</button>
+    </div>
+  </section>
+
+  <section id="experiences" class="section muted-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">TRAVEL THAT SPEAKS TO YOU</span>
+        <h2>Choose Your <em>Experience.</em></h2>
+        <p>Every traveller is different. Your journey should be, too.</p>
+      </div>
+      <span class="section-number">02 / EXPERIENCES</span>
+    </div>
+    <div class="experience-grid">
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=900&q=85" alt="Mountain adventure">
+        <div><span>01</span><h3>Adventure & Nature</h3><p>Mountain trails, breathtaking landscapes and extraordinary outdoor experiences.</p><a href="#packages" data-package="Adventure Tour">Explore adventure ↗</a></div>
+      </article>
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1511895426328-dc8714191300?auto=format&fit=crop&w=900&q=85" alt="Family travelling together">
+        <div><span>02</span><h3>Family Escapes</h3><p>Thoughtfully planned holidays with comfort, activities and family-friendly stays.</p><a href="#packages" data-package="Family Package">Explore family trips ↗</a></div>
+      </article>
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1530789253388-582c481c54b0?auto=format&fit=crop&w=900&q=85" alt="Solo traveller exploring">
+        <div><span>03</span><h3>Solo & Student Tours</h3><p>Discover new places, meet fellow travellers and build lifelong memories.</p><a href="#packages" data-package="Student Tour">Explore group tours ↗</a></div>
+      </article>
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1511988617509-a57c8a288659?auto=format&fit=crop&w=900&q=85" alt="Friends enjoying a trip">
+        <div><span>04</span><h3>Friends & Boys Tours</h3><p>Flexible group itineraries designed around discovery, freedom and fun.</p><a href="#packages" data-package="Boys Tour">Explore group escapes ↗</a></div>
+      </article>
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=900&q=85" alt="Friends enjoying time together">
+        <div><span>05</span><h3>Women's Group Travel</h3><p>Request women-led itineraries, female tour coordinators and suitable accommodation.</p><a href="#packages" data-package="Women's Tour">Explore women's tours ↗</a></div>
+      </article>
+      <article class="experience-card">
+        <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=900&q=85" alt="Elegant dining experience">
+        <div><span>06</span><h3>Luxury & comfort </h3><p>Elegant stays, scenic getaways and carefully personalised experiences.</p><a href="#hotels" data-package="Luxury Escape">Explore luxury ↗</a></div>
+      </article>
+    </div>
+  </section>
+
+  <section id="hotels" class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">STAY SOMEWHERE SPECIAL</span>
+        <h2>Exceptional <em>Stays.</em></h2>
+        <p>Choose a property that matches your destination, preferences and budget.</p>
+      </div>
+      <span class="section-number">03 / ACCOMMODATION</span>
+    </div>
+
+    <div class="hotel-tools">
+      <select id="hotelRegion">
+        <option value="all">All Locations</option>
+        <option value="Pakistan">Pakistan</option>
+        <option value="UAE">United Arab Emirates</option>
+        <option value="Turkey">Türkiye</option>
+        <option value="Switzerland">Switzerland</option>
+        <option value="France">France</option>
+        <option value="Singapore">Singapore</option>
+      </select>
+      <select id="hotelType">
+        <option value="all">All Budgets</option>
+        <option value="Luxury">Luxury</option>
+        <option value="Comfort">Comfort</option>
+      </select>
+    </div>
+    <div id="hotelGrid" class="hotel-grid"></div>
+    <p class="fine-print">Hotel names refer to real properties. Illustrative rates and descriptions are indicative, not live quotations. Availability, facilities, images and final pricing must be confirmed with the property before booking.</p>
+  </section>
+
+  <section id="packages" class="section package-section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">MADE FOR YOUR KIND OF TRAVEL</span>
+        <h2>Journeys Worth <em>Remembering.</em></h2>
+        <p>Flexible travel concepts with transparent indicative pricing.</p>
+      </div>
+      <span class="section-number">04 / OUR PACKAGES</span>
+    </div>
+    <div class="package-grid">
+      <article class="package-card">
+        <span class="package-tag">POPULAR</span>
+        <h3>Student Discovery</h3>
+        <p>Educational visits, cultural immersion and shared adventures.</p>
+        <div class="price">From PKR 35,000 <small>/ person</small></div>
+        <ul><li>Group itinerary planning</li><li>Accommodation options</li><li>Local sightseeing</li><li>Student-friendly budget</li></ul>
+        <button class="btn btn-dark select-package" data-package="Student Tour">Choose Package ↗</button>
+      </article>
+      <article class="package-card featured-package">
+        <span class="package-tag">EXCLUSIVE</span>
+        <h3>Women's Escape</h3>
+        <p>A travel concept for women seeking a thoughtfully coordinated group trip.</p>
+        <div class="price">From PKR 45,000 <small>/ person</small></div>
+        <ul><li>Female coordinator on request</li><li>Suitable accommodation options</li><li>Group transfer planning</li><li>Customisable itinerary</li></ul>
+        <button class="btn btn-gold select-package" data-package="Women's Tour">Choose Package ↗</button>
+      </article>
+      <article class="package-card">
+        <span class="package-tag">FAMILY FAVOURITE</span>
+        <h3>Family Memories</h3>
+        <p>Balanced itineraries with activities for different ages and interests.</p>
+        <div class="price">From PKR 65,000 <small>/ person</small></div>
+        <ul><li>Family-oriented planning</li><li>Hotel preferences</li><li>Private transfer options</li><li>Flexible sightseeing</li></ul>
+        <button class="btn btn-dark select-package" data-package="Family Package">Choose Package ↗</button>
+      </article>
+      <article class="package-card">
+        <span class="package-tag">ADVENTURE</span>
+        <h3>Friends & Adventure</h3>
+        <p>Explore scenic routes, vibrant cities and exciting outdoor experiences.</p>
+        <div class="price">From PKR 50,000 <small>/ person</small></div>
+        <ul><li>Group-friendly itineraries</li><li>Adventure activity options</li><li>Shared accommodation choices</li><li>Flexible group size</li></ul>
+        <button class="btn btn-dark select-package" data-package="Adventure Tour">Choose Package ↗</button>
+      </article>
+    </div>
+    <p class="fine-print">Prices are demonstration estimates in PKR, not verified offers. Final costs depend on destination, dates, flights, room occupancy, taxes and selected services.</p>
+  </section>
+
+  <section id="culinary" class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">A WORLD OF FLAVOUR</span>
+        <h2>Travel Through <em>Taste.</em></h2>
+        <p>Tell us what you love to eat, and we will use your preferences to plan suitable dining options.</p>
+      </div>
+      <span class="section-number">05 / CULINARY</span>
+    </div>
+    <div class="food-grid">
+      <button class="food-card" data-food="Pakistani">
+        <img src="https://images.unsplash.com/photo-1565557623262-b51c2513a641?auto=format&fit=crop&w=700&q=85" alt="South Asian cuisine">
+        <span>01</span><h3>Pakistani & South Asian</h3><p>Regional favourites and traditional flavours.</p>
+      </button>
+      <button class="food-card" data-food="Italian">
+        <img src="https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=700&q=85" alt="Italian pasta">
+        <span>02</span><h3>Italian</h3><p>Pastas, pizzas and Mediterranean classics.</p>
+      </button>
+      <button class="food-card" data-food="Chinese">
+        <img src="https://images.unsplash.com/photo-1563245372-f21724e3856d?auto=format&fit=crop&w=700&q=85" alt="Chinese dumplings">
+        <span>03</span><h3>Chinese & Asian</h3><p>Regional specialities and comforting classics.</p>
+      </button>
+      <button class="food-card" data-food="Seafood">
+        <img src="https://images.unsplash.com/photo-1559737558-2f5a35f4523b?auto=format&fit=crop&w=700&q=85" alt="Seafood dish">
+        <span>04</span><h3>Seafood</h3><p>Coastal flavours and fresh seafood options.</p>
+      </button>
+      <button class="food-card" data-food="Fast Food">
+        <img src="https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=700&q=85" alt="Burger">
+        <span>05</span><h3>Fast Food</h3><p>Burgers, sandwiches and casual dining.</p>
+      </button>
+      <button class="food-card" data-food="Vegetarian">
+        <img src="https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=700&q=85" alt="Fresh vegetarian salad">
+        <span>06</span><h3>Vegetarian & Healthy</h3><p>Plant-forward meals and lighter choices.</p>
+      </button>
+    </div>
+    <p class="food-note" id="foodNote">Select a cuisine to add it to your journey preferences.</p>
+  </section>
+
+  <section class="loyalty-section">
+    <div class="loyalty-image"></div>
+    <div class="loyalty-content">
+      <span class="eyebrow light">OUR TRAVELLER REWARDS</span>
+      <h2>Your Fourth Journey.<br><em>Half the Price.</em></h2>
+      <p>Travel with MK Travel on three qualifying tours and unlock a 50% discount on your fourth eligible tour. Your next adventure should reward your loyalty.</p>
+      <div class="loyalty-steps">
+        <div><strong>01</strong><span>Book your first tour</span></div>
+        <div><strong>02</strong><span>Complete three tours</span></div>
+        <div><strong>03</strong><span>Unlock 50% off your fourth</span></div>
+      </div>
+      <a href="#booking" class="btn btn-gold">Start Your Journey ↗</a>
+      <p class="fine-print">Proposed loyalty programme. Eligibility, completed-tour verification, discount cap, exclusions and booking conditions must be confirmed by the agency.</p>
+    </div>
+  </section>
+
+  <section id="why-us" class="section">
+    <div class="section-heading">
+      <div>
+        <span class="eyebrow">THE MK DIFFERENCE</span>
+        <h2>More Than a Trip.<br><em>A Thoughtful Experience.</em></h2>
+      </div>
+      <span class="section-number">06 / WHY MK</span>
+    </div>
+    <div class="benefit-grid">
+      <article><span>✳</span><h3>Personalised Planning</h3><p>Journeys tailored to your interests, schedule, travel style and spending preferences.</p></article>
+      <article><span>◎</span><h3>Choice Without Compromise</h3><p>Compare accommodation styles, cuisines and tour concepts before requesting a quote.</p></article>
+      <article><span>✦</span><h3>Women-Centred Options</h3><p>Request female coordinators and women-focused group arrangements, subject to confirmation.</p></article>
+      <article><span>↗</span><h3>Clear Communication</h3><p>Receive a proposed itinerary and itemised quotation before confirming any travel service.</p></article>
+    </div>
+  </section>
+
+  <section id="about" class="section about-section">
+    <div class="about-image">
+      <img src="https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1100&q=90" alt="Traveller exploring a new destination">
+      <div class="about-stamp">MK<br>TRAVEL</div>
+    </div>
+    <div class="about-copy">
+      <span class="eyebrow">THE STORY BEHIND THE JOURNEY</span>
+      <h2>Meet the Vision.<br><em>Mantasha Khan.</em></h2>
+      <p class="about-lead">A belief that the world becomes more meaningful when everyone has the opportunity to explore it.</p>
+      <p>MK Travel is a travel-agency website concept built around one simple idea: every journey deserves thoughtful planning. From discovering a new culture to enjoying a peaceful escape, our aim is to help travellers shape experiences that feel personal, accessible and memorable.</p>
+      <p>Created by Mantasha Khan, MK Travel represents curiosity, ambition and a passion for bringing the world closer to every traveller.</p>
+      <a href="#booking" class="text-link">Let's plan your next chapter ↗</a>
+    </div>
+  </section>
+
+  <section id="booking" class="section booking-section">
+    <div class="booking-intro">
+      <span class="eyebrow light">YOUR NEXT CHAPTER BEGINS HERE</span>
+      <h2>Plan Your <em>Journey.</em></h2>
+      <p>Share your travel preferences and receive a personalised enquiry summary. Your request is not a confirmed reservation until the agency contacts you.</p>
+      <div class="contact-points">
+        <div><span>01</span><div><strong>Your Destination</strong><p>Tell us where your curiosity leads.</p></div></div>
+        <div><span>02</span><div><strong>Your Travel Style</strong><p>Choose your package, stay and cuisine.</p></div></div>
+        <div><span>03</span><div><strong>Your Personal Plan</strong><p>Review your enquiry before confirming.</p></div></div>
+      </div>
+    </div>
+
+    <form id="bookingForm" class="booking-form">
+      <div class="form-heading"><span class="eyebrow">TRAVEL ENQUIRY</span><h3>Let's Make It Happen.</h3><p>Fields marked * are required.</p></div>
+      <div class="form-grid">
+        <div class="form-field"><label for="fullName">Full Name *</label><input id="fullName" name="fullName" required autocomplete="name" placeholder="Your full name"></div>
+        <div class="form-field"><label for="email">Email Address *</label><input id="email" name="email" type="email" required autocomplete="email" placeholder="you@example.com"></div>
+        <div class="form-field"><label for="phone">Contact Number *</label><input id="phone" name="phone" type="tel" required autocomplete="tel" placeholder="+92 ..."></div>
+        <div class="form-field"><label for="countrySelect">Destination Country *</label><select id="countrySelect" name="country" required><option value="">Select a destination</option></select></div>
+        <div class="form-field"><label for="citySelect">Preferred City</label><input id="citySelect" name="city" placeholder="e.g. Istanbul, Paris"></div>
+        <div class="form-field"><label for="travelPackage">Travel Package *</label><select id="travelPackage" name="travelPackage" required><option value="">Choose a package</option><option>Student Tour</option><option>Family Package</option><option>Boys Tour</option><option>Women's Tour</option><option>Adventure Tour</option><option>Luxury Escape</option><option>Couple Getaway</option><option>Custom Package</option></select></div>
+        <div class="form-field"><label for="departureDate">Departure Date *</label><input id="departureDate" name="departureDate" type="date" required></div>
+        <div class="form-field"><label for="returnDate">Return Date *</label><input id="returnDate" name="returnDate" type="date" required></div>
+        <div class="form-field"><label for="travellers">Number of Travellers *</label><input id="travellers" name="travellers" type="number" min="1" max="100" value="2" required></div>
+        <div class="form-field"><label for="budget">Estimated Budget (PKR) *</label><select id="budget" name="budget" required><option value="">Select budget</option><option>Under PKR 50,000</option><option>PKR 50,000–100,000</option><option>PKR 100,000–250,000</option><option>PKR 250,000–500,000</option><option>PKR 500,000+</option><option>Flexible budget</option></select></div>
+        <div class="form-field"><label for="hotelChoice">Preferred Hotel</label><select id="hotelChoice" name="hotel"><option value="">Recommend a hotel</option></select></div>
+        <div class="form-field"><label for="roomType">Accommodation Style</label><select id="roomType" name="roomType"><option>Any suitable option</option><option>Luxury</option><option>Comfort</option><option>Budget-friendly</option><option>Family room</option><option>Private room</option></select></div>
+        <div class="form-field"><label for="foodChoice">Cuisine Preference</label><select id="foodChoice" name="food"><option>Any cuisine</option><option>Pakistani</option><option>Italian</option><option>Chinese</option><option>Seafood</option><option>Fast Food</option><option>Vegetarian</option><option>Halal options requested</option><option>Other / Multiple cuisines</option></select></div>
+        <div class="form-field"><label for="travelStyle">Travel Style</label><select id="travelStyle" name="travelStyle"><option>Flexible itinerary</option><option>Guided group tour</option><option>Private tour</option><option>Women-led group</option><option>Educational tour</option><option>Adventure trip</option></select></div>
+        <div class="form-field full-field"><label for="specialRequests">Additional Requirements</label><textarea id="specialRequests" name="specialRequests" rows="4" placeholder="Tell us about your interests, accessibility requirements or special requests..."></textarea></div>
+      </div>
+      <label class="consent"><input type="checkbox" id="consent" required> I agree that my information may be used to respond to this travel enquiry. *</label>
+      <button class="btn btn-dark submit-btn" type="submit">Prepare My Travel Enquiry ↗</button>
+      <p class="form-note">Demo mode: this form validates your details and creates a local enquiry summary. It does not send information to a travel agency or confirm a booking.</p>
+      <div id="bookingResult" class="booking-result" role="status" aria-live="polite" hidden></div>
+    </form>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="footer-main">
+    <div class="footer-brand">
+      <a href="#home" class="brand">
+        <span class="brand-mark">MK</span>
+        <span>MK TRAVEL<small>WORLDWIDE EXPERIENCES</small></span>
+      </a>
+      <p>Thoughtfully imagined journeys. Meaningful discoveries. A world of possibilities.</p>
+    </div>
+    <div><h4>Discover</h4><a href="#destinations">Destinations</a><a href="#experiences">Experiences</a><a href="#hotels">Hotels</a><a href="#culinary">Cuisine</a></div>
+    <div><h4>Travel With Us</h4><a href="#packages">Our Packages</a><a href="#why-us">Why MK Travel</a><a href="#booking">Plan Your Journey</a><a href="#about">Our Story</a></div>
+    <div><h4>Get Inspired</h4><p>One world. Countless stories. Your journey starts with a single decision.</p><a href="#booking" class="text-link">Start exploring ↗</a></div>
+  </div>
+  <div class="footer-bottom"><span>© <span id="currentYear"></span> MK Travel. Travel further, thoughtfully.</span><a href="#home">Back to top ↑</a></div>
+</footer>
+
+<button id="backToTop" class="back-top" aria-label="Back to top">↑</button>
+
+<div id="imageModal" class="image-modal" role="dialog" aria-modal="true" aria-label="Image preview" hidden>
+  <button id="closeModal" class="modal-close" aria-label="Close image">✕</button>
+  <button id="modalPrev" class="modal-arrow" aria-label="Previous image">‹</button>
+  <div class="modal-content"><img id="modalImage" src="" alt=""><p id="modalCaption"></p></div>
+  <button id="modalNext" class="modal-arrow" aria-label="Next image">›</button>
+</div>
+
+</body>
+</html>
